@@ -30,7 +30,7 @@ pip install opencv-python mediapipe tensorflow numpy
 just run the American expressions.py file and make sure you have access to your webcam 
 
 
-### Note: some problem that might could be the LSTM time_major error, this happens because different TensorFlow and Keras implementations of LSTM handle the input tensor shape differently, so i just told tensorflow to ignore the argument, everything should be clear in the code 
+### Note: some problem that might occur could be the "LSTM time_major" error, this happens because different TensorFlow and Keras implementations of LSTM handle the input tensor shape differently, so i just told tensorflow to ignore the argument, everything should be clear in the code 
 
 # Future Improvements 
 i want to add in the future a Nothing output so that when it detects none of the signs it will not just be stable to one, 
