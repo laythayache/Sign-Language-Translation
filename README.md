@@ -1,61 +1,37 @@
-# Sign-Language-Translation
-American sign Language translation using mediapipe 
+# Sign Language Detection & Translation App
 
-# Overview
+## Overview
 
-This project implements real-time sign language detection using MediaPipe for hand, face, and pose detection and TensorFlow for action classification. It captures sign language gestures from a webcam and predicts actions based on a pre-trained model.
+This project presents a real-time sign language detection and translation application utilizing Python, OpenCV, MediaPipe, and TensorFlow. The application employs a custom-trained model to recognize common sign language gestures—such as "hello," "thanks," and "I love you"—and translates them into text, facilitating seamless communication for the Deaf community.
 
-# Features
+## Key Features
 
-Real-time gesture recognition using a webcam
+- **Real-Time Processing:** Captures and processes video input from a webcam in real-time.
+- **Gesture Recognition:** Utilizes MediaPipe to extract keypoints (pose, face, and hand landmarks) and a TensorFlow model to classify sign language gestures.
+- **Custom LSTM Compatibility:** Implements a custom LSTM layer (`MyLSTM`) to address compatibility issues with the `time_major` parameter.
+- **Visual Feedback:** Displays live video with annotated landmarks and overlay text indicating the recognized gesture.
+- **Versatile Applications:** Suitable for video calls, emergency communication, educational environments, customer service, and more.
 
-MediaPipe integration for pose, hand, and face landmark detection
+## Prerequisites
 
-Deep learning-based classification using an LSTM model
+- Python 3.7 or higher
+- [OpenCV](https://opencv.org/)
+- [NumPy](https://numpy.org/)
+- [MediaPipe](https://mediapipe.dev/)
+- [TensorFlow](https://www.tensorflow.org/) 2.x
 
-Expandable vocabulary (add more gestures with training)
+Install the required packages using `pip`:
 
-User-friendly display of detected signs
+```bash
+pip install opencv-python mediapipe tensorflow numpy
 
-Optimized for speed with minimal computational overhead
-
-# Installation
-
-# Requirements
-
-Ensure you have the following dependencies installed:
-
-pip install opencv-python numpy mediapipe tensorflow
-
-Running the Program
-
-Clone the repository:
-
-git clone https://github.com/your-repo/sign-language-detection.git
-cd sign-language-detection
+```
+# how to run:
+just run the American expressions.py file and make sure you have access to your webcam 
 
 
+### Note: some problem that might could be the LSTM time_major error, this happens because different TensorFlow and Keras implementations of LSTM handle the input tensor shape differently, so i just told tensorflow to ignore the argument, everything should be clear in the code 
 
-# Usage
-
-The program initializes the webcam and starts detecting gestures.
-
-Detected actions will be displayed on the screen.
-
-Press 'q' to exit.
-
-Model Information
-
-The model is trained on 30-frame sequences of hand, face, and pose landmarks.
-
-Uses an LSTM-based neural network for sequence classification.
-
-Currently supports: hello, thanks, iloveyou (expandable).
-
-
-
-
-
-# License
-
-MIT License
+# Future Improvements 
+i want to add in the future a Nothing output so that when it detects none of the signs it will not just be stable to one, 
+i also have another repository that contains the alphabet and how i trained them, that i want to mix with these.
