@@ -4,7 +4,7 @@ import mediapipe as mp
 import tensorflow as tf
 
 # Load the trained model
-model = tf.keras.models.load_model("C:/Users/Layth Ayache/OneDrive/Desktop/ActionDetectionforSignLanguage-main/ActionDetectionforSignLanguage-main/action.h5")
+model = tf.keras.models.load_model("action.h5")
 
 # Define class labels (Make sure these match your model's classes!)
 actions = np.array(['hello', 'thanks', 'iloveyou'])  # Modify if needed
