@@ -2,9 +2,17 @@ import cv2
 import numpy as np
 import mediapipe as mp
 import tensorflow as tf
+from tensorflow.keras.layers import LSTM
 
-# Load the trained model
-model = tf.keras.models.load_model("action.h5")
+# Define a custom LSTM that ignores the 'time_major' argument
+class MyLSTM(LSTM):
+    def __init__(self, *args, **kwargs):
+        # Remove 'time_major' if it exists
+        kwargs.pop('time_major', None)
+        super(MyLSTM, self).__init__(*args, **kwargs)
+
+# Load the trained model using the custom LSTM layer
+model = tf.keras.models.load_model("action.h5", custom_objects={'LSTM': MyLSTM})
 
 # Define class labels (Make sure these match your model's classes!)
 actions = np.array(['hello', 'thanks', 'iloveyou'])  # Modify if needed
